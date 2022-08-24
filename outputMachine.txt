@@ -1,0 +1,372 @@
+		mov ax,[Q]
+		mov [Y], ax
+		mov ax,[Z]
+		mov [0], ax
+	W1:	mov ax, [Z]
+		cmp ax,[5]
+		mov dx,0
+		mov ax, [Q]
+		mov bx, [2]
+		div bx
+		mov [T1], ax
+		mov ax,[T1]
+		add ax,[2]
+		mov [T2], ax
+		mov ax,[T2]
+		mov ax,[6]
+		mul ax
+		mov [T3], ax
+		mov ax,[T3]
+		mov [Q], ax
+		mov ax,[Z]
+		add ax,[1]
+		mov [T1], ax
+		mov ax,[T1]
+		mov [Z], ax
+		jmp W1
+	L1:	 NOP
+		push ax
+		push dx
+		mov eax, 4
+		mov ebx, 1
+		mov ecx, userMsg
+		mov edx, lenUserMsg
+		int 80h
+		pop dx
+		pop ax
+		mov eax, sys_read
+		mov ebx, stdin
+		mov ecx, B
+		mov edx, 4
+		int 0x80
+		mov ax, 0
+		mov [ReadInt], ax
+		mov ecx, B
+		mov bx, 0
+		mov bl, byte[ecx]
+	Next1:	 sub bl, '0'
+		mov ax, [ReadInt]
+		mov dx, 10
+		mul dx
+		add ax, bx
+		mov [ReadInt], ax
+		mov bx, 0
+		add ecx, 1
+		mov bl, byte[ecx]
+		cmp bl, 0xA
+		JNE Next1
+		mov [ReadInt], ax
+		cmp ax, 0
+		JE fini
+		push ax
+		push dx
+		mov eax, 4
+		mov ebx, 1
+		mov ecx, userMsg
+		mov edx, lenUserMsg
+		int 80h
+		pop dx
+		pop ax
+		mov eax, sys_read
+		mov ebx, stdin
+		mov ecx, C
+		mov edx, 4
+		int 0x80
+		mov ax, 0
+		mov [ReadInt], ax
+		mov ecx, C
+		mov bx, 0
+		mov bl, byte[ecx]
+	Next2:	 sub bl, '0'
+		mov ax, [ReadInt]
+		mov dx, 10
+		mul dx
+		add ax, bx
+		mov [ReadInt], ax
+		mov bx, 0
+		add ecx, 1
+		mov bl, byte[ecx]
+		cmp bl, 0xA
+		JNE Next2
+		mov [ReadInt], ax
+		cmp ax, 0
+		JE fini
+		push ax
+		push dx
+		mov eax, 4
+		mov ebx, 1
+		mov ecx, userMsg
+		mov edx, lenUserMsg
+		int 80h
+		pop dx
+		pop ax
+		mov eax, sys_read
+		mov ebx, stdin
+		mov ecx, JANE
+		mov edx, 4
+		int 0x80
+		mov ax, 0
+		mov [ReadInt], ax
+		mov ecx, JANE
+		mov bx, 0
+		mov bl, byte[ecx]
+	Next3:	 sub bl, '0'
+		mov ax, [ReadInt]
+		mov dx, 10
+		mul dx
+		add ax, bx
+		mov [ReadInt], ax
+		mov bx, 0
+		add ecx, 1
+		mov bl, byte[ecx]
+		cmp bl, 0xA
+		JNE Next3
+		mov [ReadInt], ax
+		cmp ax, 0
+		JE fini
+		push ax
+		push dx
+		mov eax, 4
+		mov ebx, 1
+		mov ecx, userMsg
+		mov edx, lenUserMsg
+		int 80h
+		pop dx
+		pop ax
+		mov eax, sys_read
+		mov ebx, stdin
+		mov ecx, BOB
+		mov edx, 4
+		int 0x80
+		mov ax, 0
+		mov [ReadInt], ax
+		mov ecx, BOB
+		mov bx, 0
+		mov bl, byte[ecx]
+	Next4:	 sub bl, '0'
+		mov ax, [ReadInt]
+		mov dx, 10
+		mul dx
+		add ax, bx
+		mov [ReadInt], ax
+		mov bx, 0
+		add ecx, 1
+		mov bl, byte[ecx]
+		cmp bl, 0xA
+		JNE Next4
+		mov [ReadInt], ax
+		cmp ax, 0
+		JE fini
+		mov dx,0
+		mov ax, [10]
+		mov bx, [2]
+		div bx
+		mov [T1], ax
+		mov ax,[T1]
+		mov ax,[4]
+		mul ax
+		mov [T2], ax
+		mov ax,[BOB]
+		add ax,[JANE]
+		mov [T3], ax
+		mov ax,[T3]
+		sub ax,[T2]
+		mov [T4], ax
+		mov ax,[B]
+		add ax,[C]
+		mov [T5], ax
+		mov dx,0
+		mov ax, [T4]
+		mov bx, [T5]
+		div bx
+		mov [T6], ax
+		mov ax,[T6]
+		mov [ANS], ax
+		mov [ReadInt], ax
+		mov ebx, ResultValue + 4
+	ConvertLoop1:
+		sub dx,dx
+		mov cx,10
+		div cx
+		add dl,'0'
+		mov [ebx], dl
+		dec ebx
+		cmp ebx, ResultValue
+		JGE ConvertLoop1
+		mov eax,4
+		mov ebx,1
+		mov ecx,Result
+		mov edx,ResultEnd
+		int 80h
+		push ax
+		push dx
+		mov eax, 4
+		mov ebx, 1
+		mov ecx, userMsg
+		mov edx, lenUserMsg
+		int 80h
+		pop dx
+		pop ax
+		mov eax, sys_read
+		mov ebx, stdin
+		mov ecx, G
+		mov edx, 4
+		int 0x80
+		mov ax, 0
+		mov [ReadInt], ax
+		mov ecx, G
+		mov bx, 0
+		mov bl, byte[ecx]
+	Next5:	 sub bl, '0'
+		mov ax, [ReadInt]
+		mov dx, 10
+		mul dx
+		add ax, bx
+		mov [ReadInt], ax
+		mov bx, 0
+		add ecx, 1
+		mov bl, byte[ecx]
+		cmp bl, 0xA
+		JNE Next5
+		mov [ReadInt], ax
+		cmp ax, 0
+		JE fini
+		push ax
+		push dx
+		mov eax, 4
+		mov ebx, 1
+		mov ecx, userMsg
+		mov edx, lenUserMsg
+		int 80h
+		pop dx
+		pop ax
+		mov eax, sys_read
+		mov ebx, stdin
+		mov ecx, H
+		mov edx, 4
+		int 0x80
+		mov ax, 0
+		mov [ReadInt], ax
+		mov ecx, H
+		mov bx, 0
+		mov bl, byte[ecx]
+	Next6:	 sub bl, '0'
+		mov ax, [ReadInt]
+		mov dx, 10
+		mul dx
+		add ax, bx
+		mov [ReadInt], ax
+		mov bx, 0
+		add ecx, 1
+		mov bl, byte[ecx]
+		cmp bl, 0xA
+		JNE Next6
+		mov [ReadInt], ax
+		cmp ax, 0
+		JE fini
+		mov ax, [G]
+		cmp ax,[H]
+		JLE L2
+		mov [ReadInt], ax
+		mov ebx, ResultValue + 4
+	ConvertLoop2:
+		sub dx,dx
+		mov cx,10
+		div cx
+		add dl,'0'
+		mov [ebx], dl
+		dec ebx
+		cmp ebx, ResultValue
+		JGE ConvertLoop2
+		mov eax,4
+		mov ebx,1
+		mov ecx,Result
+		mov edx,ResultEnd
+		int 80h
+	L2:	 NOP
+		mov ax, [G]
+		cmp ax,[H]
+		JGE L3
+		mov [ReadInt], ax
+		mov ebx, ResultValue + 4
+	ConvertLoop3:
+		sub dx,dx
+		mov cx,10
+		div cx
+		add dl,'0'
+		mov [ebx], dl
+		dec ebx
+		cmp ebx, ResultValue
+		JGE ConvertLoop3
+		mov eax,4
+		mov ebx,1
+		mov ecx,Result
+		mov edx,ResultEnd
+		int 80h
+		push ax
+		push dx
+		mov eax, 4
+		mov ebx, 1
+		mov ecx, userMsg
+		mov edx, lenUserMsg
+		int 80h
+		pop dx
+		pop ax
+		mov eax, sys_read
+		mov ebx, stdin
+		mov ecx, N
+		mov edx, 4
+		int 0x80
+		mov ax, 0
+		mov [ReadInt], ax
+		mov ecx, N
+		mov bx, 0
+		mov bl, byte[ecx]
+	Next7:	 sub bl, '0'
+		mov ax, [ReadInt]
+		mov dx, 10
+		mul dx
+		add ax, bx
+		mov [ReadInt], ax
+		mov bx, 0
+		add ecx, 1
+		mov bl, byte[ecx]
+		cmp bl, 0xA
+		JNE Next7
+		mov [ReadInt], ax
+		cmp ax, 0
+		JE fini
+		mov ax,[Y]
+		mov [1], ax
+	L3:	 NOP
+	W2:	mov ax, [N]
+		cmp ax,[0]
+		mov ax,[Y]
+		mov ax,[N]
+		mul ax
+		mov [T1], ax
+		mov ax,[T1]
+		mov [Y], ax
+		mov ax,[N]
+		sub ax,[1]
+		mov [T1], ax
+		mov ax,[T1]
+		mov [N], ax
+		jmp W2
+	L4:	 NOP
+		mov [ReadInt], ax
+		mov ebx, ResultValue + 4
+	ConvertLoop4:
+		sub dx,dx
+		mov cx,10
+		div cx
+		add dl,'0'
+		mov [ebx], dl
+		dec ebx
+		cmp ebx, ResultValue
+		JGE ConvertLoop4
+		mov eax,4
+		mov ebx,1
+		mov ecx,Result
+		mov edx,ResultEnd
+		int 80h

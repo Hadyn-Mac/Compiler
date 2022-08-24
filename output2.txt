@@ -1,0 +1,24 @@
+Token			Class			Value			Address			Segment
+LargestCommonDenominator  <Program Name>				0			CS
+M 			<Const>			7 			0			DS
+U 			<Const>			85 			2			DS
+X 			<var>			 			4			DS
+Y 			<var>			 			6			DS
+Z 			<var>			 			8			DS
+Q 			<var>			 			10			DS
+R 			<var>			 			12			DS
+A 			<var>			 			14			DS
+B 			<var>			 			16			DS
+C 			<var>			 			18			DS
+BOB 			<var>			 			20			DS
+JANE 			<var>			 			22			DS
+ANS 			<var>			 			24			DS
+0 		<Numeric Literal>		0 			26			DS
+5 		<Numeric Literal>		5 			28			DS
+2 		<Numeric Literal>		2 			30			DS
+6 		<Numeric Literal>		6 			32			DS
+1 		<Numeric Literal>		1 			34			DS
+10 		<Numeric Literal>		10 			36			DS
+4 		<Numeric Literal>		4 			38			DS
+G 			<var>			 			40			DS
+H 			<var>			 			42			DS

@@ -1,0 +1,40 @@
+CLASS LargestCommonDenominator{
+    CONST M = 7, U = 64;
+    VAR X, Y, Z, Q, R;
+
+          VAR A, B, C, BOB, JANE, ANS,H;
+
+       
+          Q = Y;  Z = 0;
+          WHILE Z < 5 DO {
+                
+                Q = (Q / 2 + 2) * 6;
+		Z = Z + 1;
+          }
+	
+	GET B;
+	GET C;
+	GET JANE;
+	GET BOB;
+	ANS = ( BOB + JANE - 10 / 2 * 4 ) / ( B + C );
+	
+	PUT ANS;
+	
+	GET G;
+	GET H;
+	IF G > H 
+	THEN PUT G;	
+	IF G < H 
+	THEN PUT H;
+
+	GET N;
+	Y = 1;
+
+	WHILE N > 0 DO
+	{
+		Y = Y * N;
+		N = N - 1;
+	}
+	PUT Y;
+    }
+
